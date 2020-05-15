@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        p {
+            color: purple;
+        }
+    </style>
+    <title>DOM Practice</title>
+</head>
+
+<body>
+    <p class="first">I added another paragraph ahead of this.</p>
+    <p id="practice">This is my practice text...</p>
+    <p id="scary"> Another paragraph</p>
+    <p id="practice">And another!</p>
+    <script>
+        let prac = document.getElementById("practice");
+        prac.append("And this is more practice");
+
+        window.addEventListener("load", function() {
+            console.log(document.readyState);
+            let p = document.querySelector("#practice");
+            console.log(p);
+            p.innerHTML = "New Title-- Boo Yahh"
+            let answer = window.confirm("Warning: You have been on this page for far too long! Would you like to run away?")
+            if (answer) {
+                p.innerHTML = "You are now running away";
+                p.style = "background-color: black; font-size: 48px;"
+                //if p.style.color is run before p.style, then p.style overwrites it and color is purple
+                //p.style.color should be added below the more broad p.style
+                //tried to run p.style.background-color but my linting rules add spaces between hyphens
+                p.style.color = "red";
+                let scary = document.getElementById("scary");
+                scary.innerHTML = `I now know how to find you.
+                `
+                scary.append(window.location.href)
+            } else {
+                p.innerHTML = "Fine, ignore me. Have a great day";
+                p.style = "color: cornflowerblue; background-color: lavender"
+            }
+
+
+        })
+
+    </script>
+</body>
+
+</html>
