@@ -18,15 +18,21 @@
                 document.getElementById("header").innerHTML = "Congrats, you defeated the beast!";
                 document.getElementById("monster").innerHTML = "The monster has <b>0</b> hp. Would you like to battle again?";
                 hp = 1;
-            }
-            if (input === "reset") {
-                document.getElementById("starter").innerHTML = reset();
-            } else if (input === "fight") {
-                document.getElementById("header").innerHTML = "You attack the monster for 1pt of damage!";
-                hp--;
-                document.querySelector("b").innerHTML = hp;
-            } else if (input === "flee") {
-                document.getElementById("header").innerHTML = "You run away... quickly!"
+
+                if (input === "reset") {
+                    document.getElementById("starter").innerHTML = reset();
+                }
+            } else {
+                if (input === "reset") {
+                    document.getElementById("starter").innerHTML = reset();
+                } else if (input === "fight") {
+                    document.getElementById("header").innerHTML = "You attack the monster for 1pt of damage!";
+                    hp--;
+                    document.getElementById("monster").innerHTML = `A monster approaches and has <b>${hp}</b> pts of hp.`;
+                } else if (input === "flee") {
+                    document.getElementById("header").innerHTML = "You run away... quickly!";
+                    document.getElementById("monster").innerHTML = `The monster maintains <b>${hp}</b> hp and snickers at your cowardice.`
+                }
             }
         }
     </script>
