@@ -13,18 +13,14 @@
                     const destination = document.getElementById("destination");
                     destination.addEventListener("click", function() {
                         destination.innerHTML = `
-            <div>
-               <h3>Planet ${json[index].name}</h3>
-               <img src=${json[index].image} height=250></img>
-            </div>`
+                            <div>
+                                <h3>Planet ${json[index].name}</h3>
+                                <img src=${json[index].image} height=250></img>
+                            </div>`
                         index = (index + 1) % json.length;
                     })
-                    //                    destination.innerHTML = `< h3 > Planet ${ json[0].name }</h3 >`
                 });
-                //                console.log(response);
-                // TODO: do something after fetching and receiving a response
             })
-            // TODO: fetch planets JSON
         });
     </script>
 </head>
@@ -34,6 +30,7 @@
     <div id="destination">
         <h3>Planet</h3>
     </div>
+    <p>(Click <strong>Planet</strong> to see something cool...)</p>
 </body>
 
 </html>
